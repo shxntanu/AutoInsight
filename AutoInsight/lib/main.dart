@@ -10,7 +10,9 @@ class AutoInsight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+      theme: ThemeData(
+        fontFamily: 'San Francisco'
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => const LandingScreen(),

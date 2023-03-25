@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+
 import 'package:flutter/material.dart';
 import 'package:autoinsight/constants.dart';
 import 'login_screen.dart';
+import 'package:autoinsight/screens/registration_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -118,7 +120,15 @@ class _LandingScreenState extends State<LandingScreen> with SingleTickerProvider
             SizedBox(
               height: 13,
             ),
-            ElevatedButton(onPressed: (){}, 
+            ElevatedButton(onPressed: (){
+              Navigator.push(
+                context, 
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) => RegistrationScreen(),
+                  transitionDuration: Duration.zero,
+                  reverseTransitionDuration: Duration.zero,
+                  ));
+            }, 
                 child:Padding(
                   padding: EdgeInsets.all(10),
                   child: Text('Sign Up',

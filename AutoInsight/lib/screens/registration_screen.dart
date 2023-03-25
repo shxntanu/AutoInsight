@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:autoinsight/constants.dart';
 import 'login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStateMixin {
+class _RegistrationScreenState extends State<RegistrationScreen> with SingleTickerProviderStateMixin {
 
   late AnimationController controller;
   late Animation animation;
@@ -148,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
             ElevatedButton(onPressed: (){}, 
                 child:Padding(
                   padding: EdgeInsets.all(10),
-                  child: Text('Login',
+                  child: Text('Sign Up',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20
@@ -157,6 +157,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
             style: ElevatedButton.styleFrom(
               primary: lightTeal,
             ),),
+
             SizedBox(
               height: 25,
             ),
