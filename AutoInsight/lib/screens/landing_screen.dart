@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:autoinsight/constants.dart';
 import 'login_screen.dart';
 import 'package:autoinsight/screens/registration_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -14,12 +16,14 @@ class LandingScreen extends StatefulWidget {
 }
 
 class _LandingScreenState extends State<LandingScreen> with SingleTickerProviderStateMixin {
-
+  
   late AnimationController controller;
   late Animation animation;
 
   @override
   void initState() {
+
+    future: Firebase.initializeApp();
     
     controller = AnimationController(
       duration: Duration(seconds: 4),
@@ -65,8 +69,8 @@ class _LandingScreenState extends State<LandingScreen> with SingleTickerProvider
               ),
           ),
           OverflowBox(
-            maxWidth: width*1.25,
-            maxHeight: height*1.25,
+            maxWidth: width*1.5,
+            maxHeight: height*1.5,
             child: Container(
               width: animation.value*500,
               height: animation.value*500,

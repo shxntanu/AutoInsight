@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "778533267781",
+    "project_id": "autoinsight-2b981",
+    "storage_bucket": "autoinsight-2b981.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778533267781:android:a754b2296a203290f9f62c",
+        "android_client_info": {
+          "package_name": "com.example.autoinsight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778533267781-74j02tj11mbmnm14j6gt5m2bk959s2ng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8-1304JIa5_1wnLBuCVRGnBvrUJDhoo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778533267781-74j02tj11mbmnm14j6gt5m2bk959s2ng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
