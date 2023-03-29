@@ -71,14 +71,23 @@ class _LandingScreenState extends State<LandingScreen> with SingleTickerProvider
           OverflowBox(
             maxWidth: width*1.5,
             maxHeight: height*1.5,
-            child: Container(
-              width: animation.value*500,
-              height: animation.value*500,
-              decoration: const BoxDecoration(
-                color: offGrey,
-                shape: BoxShape.circle,
+            // child: Container(
+            //   width: animation.value*500,
+            //   height: animation.value*500,
+            //   decoration: const BoxDecoration(
+            //     // color: offGrey,
+            //     shape: BoxShape.circle,
+            //     ),
+            //   child: AssetImage(
+            //     'assets/CarWheel.svg',
+            //   ),
+            // ),
+            child: CircleAvatar(
+              radius: animation.value*400,
+              backgroundImage: AssetImage(
+                'assets/CarWheel2.png'
               ),
-              ),
+            ),
           ),
           Container(
         alignment: Alignment.center,
