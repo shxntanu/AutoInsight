@@ -40,6 +40,7 @@ dependencies:
   rive: ^0.10.3
   firebase_auth: ^4.3.0
   modal_progress_hud_nsn: ^0.3.0
+  # flutter_native_splash: ^2.2.19
 
 dev_dependencies:
   flutter_test:
