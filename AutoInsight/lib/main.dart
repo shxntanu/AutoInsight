@@ -7,6 +7,7 @@ import 'screens/landing_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/temp_screen.dart';
 import 'screens/onboarding/new_landing_screen.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
 
 void main() => runApp(const AutoInsight());
 
@@ -16,9 +17,7 @@ class AutoInsight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'San Francisco'
-      ),
+      theme: ThemeData(fontFamily: 'San Francisco'),
       initialRoute: '/temp',
       routes: {
         '/': (context) => LandingScreen(),
@@ -30,3 +29,7 @@ class AutoInsight extends StatelessWidget {
     );
   }
 }
+
+
+// Hello there
+// byoyoyouijxskxhwkehxlwejlxwehxwhelxjcwlexlwe
