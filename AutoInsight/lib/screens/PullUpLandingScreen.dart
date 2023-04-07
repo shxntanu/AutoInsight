@@ -1,7 +1,9 @@
+// Pull up box Landing Screen
+
 import 'package:flutter/material.dart';
 
-class TempScreen extends StatelessWidget {
-  const TempScreen({super.key});
+class PullUpLandingScreen extends StatelessWidget {
+  const PullUpLandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
