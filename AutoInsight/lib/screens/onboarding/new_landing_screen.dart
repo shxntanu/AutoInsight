@@ -1,3 +1,6 @@
+// IN PROGRESS
+// LANDING SCREEN LIKE THE EXAMPLE APP
+
 import 'package:flutter/material.dart';
 
 class NewLandingScreen extends StatefulWidget {
@@ -15,7 +18,7 @@ class _NewLandingScreenState extends State<NewLandingScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('AutoInsight',
+            const Text('AutoInsight',
               style: TextStyle(
                 fontSize: 50,
                 fontWeight:FontWeight.bold,

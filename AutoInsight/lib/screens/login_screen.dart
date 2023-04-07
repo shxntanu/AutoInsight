@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, avoid_print
+
+// Circular Design Login Screen
 
 import 'package:autoinsight/screens/landing_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:autoinsight/constants.dart';
 import 'login_screen.dart';
@@ -104,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
               SizedBox(
                 height: 30,
               ),
-              Container(
+              SizedBox(
                 width: 300,
                 child: TextField(
                       decoration: InputDecoration(
@@ -132,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
               SizedBox(
                 height: 13,
               ),
-              Container(
+              SizedBox(
                 width: 300,
                 child: TextField(
                       decoration: InputDecoration(
@@ -189,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                 )),
                 ),
               style: ElevatedButton.styleFrom(
-                primary: lightTeal,
+                backgroundColor: lightTeal,
               ),),
               SizedBox(
                 height: 25,
