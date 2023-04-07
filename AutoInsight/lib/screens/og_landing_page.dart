@@ -1,52 +1,54 @@
-// import 'package:flutter/material.dart';
+// Original Landing screen designed by Ridhima
 
-// class EntryPage extends StatefulWidget {
-//   const EntryPage({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
 
-//   @override
-//   State<EntryPage> createState() => _EntryPageState();
-// }
+class OGEntryPage extends StatefulWidget {
+  const OGEntryPage({Key? key}) : super(key: key);
 
-// class _EntryPageState extends State<EntryPage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.teal.shade100,
-//       body: Container(
-//         alignment: Alignment.center,
-//         margin: EdgeInsets.fromLTRB(20, 80, 20, 60),
-//         decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),
-//         color: Colors.white70),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           children: [
-//             Text('AutoInsight',
-//             style: TextStyle(
-//               color: Colors.teal.shade900,
-//               fontSize: 40,
-//               fontWeight: FontWeight.bold,
+  @override
+  State<OGEntryPage> createState() => _OGEntryPageState();
+}
 
-//             ),),
-//             SizedBox(
-//               height: 50,
-//             ),
-//             ElevatedButton(onPressed: (){},
-//                 child: Text(
-//               'Login',
-//               style: TextStyle(color: Colors.white),
-//             ),
-//             style:ElevatedButton.styleFrom(
-//               primary: Colors.teal,
-//             ),),
-//             ElevatedButton(onPressed: (){}, 
-//                 child:Text('Sign In'),
-//             style: ElevatedButton.styleFrom(
-//               primary: Colors.teal,
-//             ),)
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+class _OGEntryPageState extends State<OGEntryPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.teal.shade100,
+      body: Container(
+        alignment: Alignment.center,
+        margin: const EdgeInsets.fromLTRB(20, 80, 20, 60),
+        decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),
+        color: Colors.white70),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('AutoInsight',
+            style: TextStyle(
+              color: Colors.teal.shade900,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+
+            ),),
+            const SizedBox(
+              height: 50,
+            ),
+            ElevatedButton(onPressed: (){},
+            style:ElevatedButton.styleFrom(
+              primary: Colors.teal,
+            ),
+                child: const Text(
+              'Login',
+              style: TextStyle(color: Colors.white),
+            ),),
+            ElevatedButton(onPressed: (){},
+            style: ElevatedButton.styleFrom(
+              primary: Colors.teal,
+            ), 
+                child:const Text('Sign In'),)
+          ],
+        ),
+      ),
+    );
+  }
+}
