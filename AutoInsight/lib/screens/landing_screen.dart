@@ -1,6 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
-
 import 'package:flutter/material.dart';
 import 'package:autoinsight/constants.dart';
 import 'login_screen.dart';
@@ -26,7 +23,7 @@ class _LandingScreenState extends State<LandingScreen> with SingleTickerProvider
     future: Firebase.initializeApp();
     
     controller = AnimationController(
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
       vsync: this,
     );
 
@@ -71,42 +68,42 @@ class _LandingScreenState extends State<LandingScreen> with SingleTickerProvider
           OverflowBox(
             maxWidth: width*1.5,
             maxHeight: height*1.5,
-            // child: Container(
-            //   width: animation.value*500,
-            //   height: animation.value*500,
-            //   decoration: const BoxDecoration(
-            //     // color: offGrey,
-            //     shape: BoxShape.circle,
-            //     ),
-            //   child: AssetImage(
-            //     'assets/CarWheel.svg',
+            child: Container(
+              width: animation.value*500,
+              height: animation.value*500,
+              decoration: const BoxDecoration(
+                color: offGrey,
+                shape: BoxShape.circle,
+                ),
+              // child: AssetImage(
+              //   'assets/CarWheel.svg',
+              // ),
+            ),
+            // child: CircleAvatar(
+            //   radius: animation.value*400,
+            //   backgroundImage: const AssetImage(
+            //     'assets/CarWheel2.png'
             //   ),
             // ),
-            child: CircleAvatar(
-              radius: animation.value*400,
-              backgroundImage: AssetImage(
-                'assets/CarWheel2.png'
-              ),
-            ),
           ),
           Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.fromLTRB(20, 80, 20, 60),
-        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20),
+        margin: const EdgeInsets.fromLTRB(20, 80, 20, 60),
+        decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20),
           ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('AutoInsight',
+            const Text('AutoInsight',
             style: TextStyle(
               color: darkTeal,
               fontSize: 45,
               fontWeight: FontWeight.bold,
 
             ),),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             ElevatedButton(
@@ -114,45 +111,45 @@ class _LandingScreenState extends State<LandingScreen> with SingleTickerProvider
               Navigator.push(
                 context, 
                 PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => LoginScreen(),
+                  pageBuilder: (context, animation, secondaryAnimation) => const LoginScreen(),
                   transitionDuration: Duration.zero,
                   reverseTransitionDuration: Duration.zero,
                   ));
             },
-                child: Padding(
+            style:ElevatedButton.styleFrom(
+              backgroundColor: lightTeal,
+            ),
+                child: const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     'Login',
                     style: TextStyle(color: Colors.white,
                     fontSize: 20),
                   ),
-                ),
-            style:ElevatedButton.styleFrom(
-              primary: lightTeal,
-            ),),
-            SizedBox(
+                ),),
+            const SizedBox(
               height: 13,
             ),
             ElevatedButton(onPressed: (){
               Navigator.push(
                 context, 
                 PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => RegistrationScreen(),
+                  pageBuilder: (context, animation, secondaryAnimation) => const RegistrationScreen(),
                   transitionDuration: Duration.zero,
                   reverseTransitionDuration: Duration.zero,
                   ));
-            }, 
-                child:Padding(
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: lightTeal,
+            ), 
+                child:const Padding(
                   padding: EdgeInsets.all(10),
                   child: Text('Sign Up',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20
                   )),
-                  ),
-            style: ElevatedButton.styleFrom(
-              primary: lightTeal,
-            ),)
+                  ),)
           ],
         ),
       )
