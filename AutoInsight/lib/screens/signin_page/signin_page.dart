@@ -12,7 +12,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -26,17 +26,17 @@ class _SignInPageState extends State<SignInPage> {
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            foregroundColor: Color(0xFF03045E),
+            foregroundColor: const Color(0xFF03045E),
           ),
-          backgroundColor: Color(0x00000000),
+          backgroundColor: const Color(0x00000000),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
                 //mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(50.0),
+                  const Padding(
+                    padding: EdgeInsets.all(50.0),
                     child: Card(
                       margin: EdgeInsets.only(top: 20, right: 30, left: 30),
                       color: Colors.white,
