@@ -54,6 +54,12 @@ class TestScreen extends StatelessWidget {
               },
               child: const Text('Pull Up Landing Screen'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/signin');
+              },
+              child: const Text('Sign In'),
+            ),
           ],
         ),
       ),
