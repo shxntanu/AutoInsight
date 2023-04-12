@@ -8,6 +8,7 @@ import 'screens/landing_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/PullUpLandingScreen.dart';
 import 'screens/og_landing_page.dart';
+import 'screens/signin_page/signin_page.dart';
 import 'screens/onboarding/new_landing_screen.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 
@@ -30,6 +31,7 @@ class AutoInsight extends StatelessWidget {
         '/new': (context) => NewLandingScreen(),                // New Landing screen (from the sample app) that we're building
         '/og' : (context) => const OGEntryPage(),               // Original landing screen
         '/pullup' : (context) => const PullUpLandingScreen(),   // Pull Up Landing Screen
+        '/signin' : (context) => SignInPage(),                  // New Sign In Page
       },
     );
   }
