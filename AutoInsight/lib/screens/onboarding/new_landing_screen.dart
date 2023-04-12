@@ -2,6 +2,8 @@ import 'package:autoinsight/screens/signin_page/signin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:autoinsight/screens/onboarding/components/sign_in_dialog.dart';
 
+import '../signin_page/login_popup.dart';
+
 class NewLandingScreen extends StatefulWidget {
   @override
   _NewLandingScreenState createState() => _NewLandingScreenState();
@@ -28,9 +30,9 @@ class _NewLandingScreenState extends State<NewLandingScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //   return ();
-                  // }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Login_PopUp();
+                  }));
                 },
                 child: Text('Login'),
                 style: ElevatedButton.styleFrom(
