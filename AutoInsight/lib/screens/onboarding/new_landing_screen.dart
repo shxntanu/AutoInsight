@@ -1,4 +1,4 @@
-import 'package:autoinsight/screens/onboarding/components/signinpage.dart';
+import 'package:autoinsight/screens/signin_page/signin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:autoinsight/screens/onboarding/components/sign_in_dialog.dart';
 
