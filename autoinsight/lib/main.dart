@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: const SignInPage(),
       getPages: [
         GetPage(name: '/', page: () => const SignInPage()),
-
+        
       ],
     );
   }
