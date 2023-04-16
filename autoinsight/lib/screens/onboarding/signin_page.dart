@@ -1,4 +1,4 @@
-import 'package:autoinsight/screens/onboarding/signin_textfield.dart';
+import 'package:autoinsight/screens/onboarding/components/signin_textfield.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatelessWidget {
