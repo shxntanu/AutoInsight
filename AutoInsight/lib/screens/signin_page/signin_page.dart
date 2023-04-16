@@ -1,14 +1,9 @@
 import 'package:autoinsight/screens/signin_page/signin_textfield.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatefulWidget {
-  //const SignInPage({super.key});
+class SignInPage extends StatelessWidget {
+  const SignInPage({super.key});
 
-  @override
-  State<SignInPage> createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,8 +82,6 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 }
-
-
 
 // FF7171
 // FA6E00
