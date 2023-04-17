@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../onboarding/components/signin_textfield.dart';
 
 class SignInPage extends StatelessWidget {
@@ -7,6 +7,8 @@ class SignInPage extends StatelessWidget {
   final _ctr1 = TextEditingController();
   final _ctr2 = TextEditingController();
   final _ctrConfirm = TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class SignInPage extends StatelessWidget {
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
-                //mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Padding(
@@ -83,7 +85,36 @@ class SignInPage extends StatelessWidget {
                             ))
                       ],
                     ),
-                  )
+                  ),
+
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  ElevatedButton(
+                    onPressed: (){
+                      late final user;
+                      if(_ctr2.text == _ctrConfirm.text){
+                        user = _auth.createUserWithEmailAndPassword(
+                          email: _ctr1.text,
+                          password: _ctr2.text
+                        );
+                      }
+
+                      if(user != null) {
+                        Navigator.pushNamed(context, '/camera');
+                      }
+
+                      // _auth.createUserWithEmailAndPassword(
+                      //   email: _ctr1.text,
+                      //   password: _ctr2.text
+                      // );
+
+                    }, 
+                    child: const Text(
+                      "Sign Up",
+                    ),
+                  ),
                 ]),
           )),
     );
