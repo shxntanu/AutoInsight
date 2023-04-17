@@ -92,7 +92,14 @@ class SignInPage extends StatelessWidget {
                   ),
 
                   ElevatedButton(
-                    onPressed: (){
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color.fromARGB(255, 240, 87, 87),
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                    onPressed: () {
                       late final user;
                       if(_ctr2.text == _ctrConfirm.text){
                         user = _auth.createUserWithEmailAndPassword(
@@ -104,12 +111,6 @@ class SignInPage extends StatelessWidget {
                       if(user != null) {
                         Navigator.pushNamed(context, '/camera');
                       }
-
-                      // _auth.createUserWithEmailAndPassword(
-                      //   email: _ctr1.text,
-                      //   password: _ctr2.text
-                      // );
-
                     }, 
                     child: const Text(
                       "Sign Up",
