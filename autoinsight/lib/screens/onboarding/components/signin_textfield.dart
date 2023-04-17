@@ -8,6 +8,7 @@ class SignIn_TextField extends StatelessWidget {
           required this.hintText,
           required this.textType,
           required this.obscureText
+          required this.controller,
         }
       );
 
@@ -15,6 +16,7 @@ class SignIn_TextField extends StatelessWidget {
   final String hintText;
   final TextInputType textType;
   final bool obscureText;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class SignIn_TextField extends StatelessWidget {
       //margin: EdgeInsets.only(top: 20),
       color: const Color(0xFFF2F2F2),
       child: TextField(
+        controller: controller,
         obscureText: obscureText,
         keyboardType: textType,
         decoration: InputDecoration(

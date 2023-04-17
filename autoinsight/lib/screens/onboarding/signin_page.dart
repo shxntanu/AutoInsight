@@ -1,10 +1,14 @@
-import 'package:autoinsight/screens/onboarding/components/signin_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'package:../screens/onboarding/components/signin_textfield.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
 
+  final _ctr1 = TextEditingController();
+  final _ctr2 = TextEditingController();
+  final _ctrConfirm = TextEditingContoller();
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +58,7 @@ class SignInPage extends StatelessWidget {
                         Padding(
                             padding: EdgeInsets.all(15.0),
                             child: SignIn_TextField(
+                              controller: _ctr1,
                               icon: Icons.email,
                               hintText: 'enter email',
                               textType: TextInputType.emailAddress,
@@ -62,6 +67,7 @@ class SignInPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(15.0),
                           child: SignIn_TextField(
+                            controller: _ctr2,
                             icon: Icons.key,
                             hintText: 'enter password',
                             textType: TextInputType.visiblePassword,
@@ -71,6 +77,7 @@ class SignInPage extends StatelessWidget {
                         Padding(
                             padding: EdgeInsets.all(15.0),
                             child: SignIn_TextField(
+                              controller: _ctrConfirm,
                               icon: Icons.key,
                               hintText: 'confirm password',
                               textType: TextInputType.visiblePassword,
