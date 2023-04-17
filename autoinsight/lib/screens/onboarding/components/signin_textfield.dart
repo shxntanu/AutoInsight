@@ -23,7 +23,7 @@ class SignIn_TextField extends StatelessWidget {
     return Card(
       //margin: EdgeInsets.only(top: 20),
       color: const Color(0xFFF2F2F2),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         obscureText: obscureText,
         keyboardType: textType,
