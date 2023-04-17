@@ -1,5 +1,6 @@
 import 'package:autoinsight/screens/signin_page/signin_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:autoinsight/main.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -36,7 +37,7 @@ class SignInPage extends StatelessWidget {
                       margin: EdgeInsets.only(top: 20, right: 30, left: 30),
                       color: Colors.white,
                       child: Text(
-                        'Sign In',
+                        'Get Started!',
                         style: TextStyle(
                             color: Color(0xFF03045E),
                             fontSize: 30,
@@ -73,10 +74,28 @@ class SignInPage extends StatelessWidget {
                               hintText: 'confirm password',
                               textType: TextInputType.visiblePassword,
                               obscureText: true,
-                            ))
+                            )),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 140, right: 140),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/dashboard');
+                      },
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFFFFFFFF),
+                          foregroundColor: Color(0xFF03045E)),
+                    ),
+                  ),
                 ]),
           )),
     );

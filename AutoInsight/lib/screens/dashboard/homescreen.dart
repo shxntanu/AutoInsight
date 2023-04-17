@@ -1,57 +1,106 @@
-import 'package:flutter/material.dart'
+import 'package:flutter/material.dart';
+import 'package:autoinsight/main.dart';
 
+import 'components/bottombar.dart';
 
-class HomeScreen extends StatefulWidget {
+class FinalHomeScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _FinalHomeScreenState createState() => _FinalHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _FinalHomeScreenState extends State<FinalHomeScreen> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      child:Column(
-        children:<Widget>
-        [Row(
-        children:<Widget>
-        [
-        CircleAvatar(
-          radius: 20,
-          backgroundImage: AssetImage(//insert image here
+        body: Column(children: <Widget>[
+          SizedBox(
+            height: 35,
           ),
-        ),
-        SizedBox(width: 10,),
-        Text('Welcome Back!',
-        style:TextStyle(
-          color:Color.fromARGB(255, 240, 87, 87),
-          fontSize: 20,
-        ),
-        ),
-        SizedBox(width: 30,),
-        Card(
-          child:Text(//current location)
-        ),style:TextStyle(
-          color:Colors.black,
-          fontSize: 20,
-        ),
-        ),
-        ]
-      ),
-      Container(
-        child:
-        Column(
-          children:<Widget>
-          [
+          Row(children: <Widget>[
+            SizedBox(
+              width: 10,
+            ),
+            CircleAvatar(
+              radius: 20,
+              // backgroundImage: AssetImage(//insert image here
+              // ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'Welcome Back!',
+              style: TextStyle(
+                  color: Color(0xFF03045E),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              width: 90,
+            ),
             Card(
-              child:
-            )
-          ]
-        )
-      ),
-    ])
-    );
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  'current location',
+                  style: TextStyle(color: Color(0xFFFFFFFF)),
+                ),
+              ),
+              color: Colors.grey,
+            ),
+          ]),
+          Container(
+              child: Column(children: <Widget>[
+            Card(
+              child: Text('Previous Trips'),
+            ),
+          ])),
+        ]),
+        bottomNavigationBar: BottomAppBar(
+          height: 60,
+          color: Color(0xFFFF6D6D),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                width: 20,
+              ),
+              BottomBarButton(
+                icon: Icons.person,
+                tip: 'User',
+              ),
+              SizedBox(
+                width: 30,
+              ),
+              BottomBarButton(
+                icon: Icons.camera,
+                tip: 'Area Feed',
+              ),
+              SizedBox(
+                width: 30,
+              ),
+              BottomBarButton(
+                icon: Icons.add,
+                tip: 'New Trip',
+              ),
+              SizedBox(
+                width: 30,
+              ),
+              BottomBarButton(
+                icon: Icons.card_membership,
+                tip: 'Vehicle',
+              ),
+              SizedBox(
+                width: 30,
+              ),
+              BottomBarButton(
+                icon: Icons.settings,
+                tip: 'Settings',
+              )
+            ],
+          ),
+        ));
   }
-
 }
 
 
