@@ -29,6 +29,13 @@
             {
               "client_id": "1073925508284-mmdh4489sdmufde5723cdmbv1pqh2t1i.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1073925508284-a18v36j4eh4ut7rbe8qih8vk525tq28r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.autoinsight"
+              }
             }
           ]
         }
