@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../screens/onboarding/signin_page.dart';
+import '../screens/camera_page/camera_page.dart';
+import '../screens/camera_page/video_page.dart';
+
 import '../firebase_options.dart';
 
-void main() {
-  Firebase.initializeApp(
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
       home: SignInPage(),
       getPages: [
         GetPage(name: '/', page: () => SignInPage()),
-        
+        GetPage(name: '/camera', page: () => const CameraPage()),
       ],
     );
   }
