@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
     
     return GetMaterialApp(
       title: 'AutoInsight',
-      home: const SignInPage(),
+      home: SignInPage(),
       getPages: [
-        GetPage(name: '/', page: () => const SignInPage()),
+        GetPage(name: '/', page: () => SignInPage()),
         
       ],
     );

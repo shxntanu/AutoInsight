@@ -7,8 +7,8 @@ class SignIn_TextField extends StatelessWidget {
           required this.icon,
           required this.hintText,
           required this.textType,
-          required this.obscureText
-          required this.controller,
+          required this.obscureText, 
+          required this.controller
         }
       );
 

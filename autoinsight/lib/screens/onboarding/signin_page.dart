@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'package:../screens/onboarding/components/signin_textfield.dart';
+import '../onboarding/components/signin_textfield.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
 
   final _ctr1 = TextEditingController();
   final _ctr2 = TextEditingController();
-  final _ctrConfirm = TextEditingContoller();
+  final _ctrConfirm = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +52,9 @@ class SignInPage extends StatelessWidget {
                   Card(
                     color: Colors.white,
                     child: Column(
-                      children: const [
+                      children: [
                         Padding(
-                            padding: EdgeInsets.all(15.0),
+                            padding: const EdgeInsets.all(15.0),
                             child: SignIn_TextField(
                               controller: _ctr1,
                               icon: Icons.email,
@@ -65,7 +63,7 @@ class SignInPage extends StatelessWidget {
                               obscureText: false,
                             )),
                         Padding(
-                          padding: EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: SignIn_TextField(
                             controller: _ctr2,
                             icon: Icons.key,
@@ -75,7 +73,7 @@ class SignInPage extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                            padding: EdgeInsets.all(15.0),
+                            padding: const EdgeInsets.all(15.0),
                             child: SignIn_TextField(
                               controller: _ctrConfirm,
                               icon: Icons.key,
