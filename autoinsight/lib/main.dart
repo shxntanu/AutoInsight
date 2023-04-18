@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../screens/onboarding/signin_page.dart';
+import 'screens/onboarding/signup_page.dart';
 import '../screens/camera_page/camera_page.dart';
 import '../screens/camera_page/video_page.dart';
 
@@ -24,9 +24,9 @@ class MyApp extends StatelessWidget {
     
     return GetMaterialApp(
       title: 'AutoInsight',
-      home: SignInPage(),
+      home: SignUpPage(),
       getPages: [
-        GetPage(name: '/', page: () => SignInPage()),
+        GetPage(name: '/', page: () => SignUpPage()),
         GetPage(name: '/camera', page: () => const CameraPage()),
       ],
     );
