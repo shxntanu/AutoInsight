@@ -1,7 +1,7 @@
 import 'package:autoinsight/screens/dashboard/homescreen.dart';
+import 'package:autoinsight/screens/navigationbarScreens/profile_page.dart';
 import 'package:autoinsight/screens/onboarding/new_landing_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'screens/test_screen/test_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/registration_screen.dart';
@@ -12,6 +12,7 @@ import 'screens/og_landing_page.dart';
 import 'screens/signin_page/signin_page.dart';
 import 'screens/onboarding/new_landing_screen.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'screens/dashboard/homescreen.dart';
 
 void main() => runApp(const AutoInsight());
 
@@ -40,6 +41,7 @@ class AutoInsight extends StatelessWidget {
             const PullUpLandingScreen(), // Pull Up Landing Screen
         '/signin': (context) => SignInPage(),
         '/dashboard': (context) => FinalHomeScreen(), // New Sign In Page
+        '/profile': (context) => Profile_Page(),
       },
     );
   }
