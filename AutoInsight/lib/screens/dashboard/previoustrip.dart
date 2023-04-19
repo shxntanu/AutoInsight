@@ -8,7 +8,7 @@ class PreviousTrip extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.fromLTRB(30, 15, 30, 15),
         child: Card(
           borderOnForeground: true,
           color: Colors.white,

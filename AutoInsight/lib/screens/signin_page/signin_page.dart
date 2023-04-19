@@ -82,7 +82,7 @@ class SignInPage extends StatelessWidget {
                     height: 30,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 140, right: 140),
+                    padding: const EdgeInsets.only(left: 100, right: 100),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/dashboard');
