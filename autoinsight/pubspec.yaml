@@ -38,10 +38,14 @@ dependencies:
   get: ^4.6.5
   video_player: ^2.6.1
   firebase_core: ^2.9.0
-  firebase_storage: ^11.1.0
+  firebase_storage: ^11.1.1
   firebase_auth: ^4.4.1
   cloud_firestore: ^4.5.1
   camera: ^0.10.4
+  floating_bottom_navigation_bar: ^1.5.2
+  circle_bottom_navigation_bar: ^1.0.0
+  path_provider: ^2.0.14
+  shared_preferences: ^2.1.0
 
 dev_dependencies:
   flutter_test:
