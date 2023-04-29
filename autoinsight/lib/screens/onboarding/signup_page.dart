@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../onboarding/components/signin_textfield.dart';
 
@@ -10,6 +12,7 @@ class SignUpPage extends StatelessWidget {
   final _ctr2 = TextEditingController();
   final _ctrConfirm = TextEditingController();
 
+  final storage = FirebaseStorage.instance;
   final _auth = FirebaseAuth.instance;
 
   @override
@@ -101,7 +104,7 @@ class SignUpPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(32.0),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       late final user;
                       if(_ctr2.text == _ctrConfirm.text){
                         user = _auth.createUserWithEmailAndPassword(
@@ -111,7 +114,14 @@ class SignUpPage extends StatelessWidget {
                       }
 
                       if(user != null) {
-                        Get.to('/camera');
+                        final path = 'users/${_ctr1.text}/profile.png';
+                        Reference ref = storage.ref().child(path);
+                        
+                        final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                        prefs.setString('email', _ctr1.text);
+                        prefs.setString('password', _ctr2.text);
+                        prefs.setBool('logged_in', true);
                       }
                     }, 
                     child: const Text(
