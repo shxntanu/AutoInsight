@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'screens/onboarding/signup_page.dart';
 import '../screens/camera_page/camera_page.dart';
 import '../screens/camera_page/video_page.dart';
+import '../screens/car_screen/car_screen.dart';
 
 import '../firebase_options.dart';
 
@@ -24,10 +25,12 @@ class MyApp extends StatelessWidget {
     
     return GetMaterialApp(
       title: 'AutoInsight',
-      home: SignUpPage(),
+      // home: SignUpPage(),
+      home: const CarScreen(),
       getPages: [
         GetPage(name: '/', page: () => SignUpPage()),
         GetPage(name: '/camera', page: () => const CameraPage()),
+        GetPage(name: '/car', page: () => const CarScreen()),
       ],
     );
   }
