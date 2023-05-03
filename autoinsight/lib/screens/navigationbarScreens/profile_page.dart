@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Profile_Page extends StatelessWidget {
-  const Profile_Page({super.key});
+  
+  Profile_Page({required this.name, required this.carname, required this.year, required this.licenseplatenumber});
+
+  final String name, carname, year, licenseplatenumber;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +25,10 @@ class Profile_Page extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Card(
+            Card(
               child: Text(
-                'Name Name',
-                style: TextStyle(fontSize: 35, color: Color(0xFF03045E)),
+                name,
+                style: const TextStyle(fontSize: 35, color: Color(0xFF03045E)),
               ),
             ),
             const SizedBox(
@@ -36,21 +39,21 @@ class Profile_Page extends StatelessWidget {
               child: Card(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: const [
+                    children: [
                       Text(
-                        'Car Name',
+                        carname,
+                        style: kstyle,
+                      ),
+                      // Text(
+                      //   carmodel,
+                      //   style: kstyle,
+                      // ),
+                      Text(
+                        year,
                         style: kstyle,
                       ),
                       Text(
-                        'Car Model',
-                        style: kstyle,
-                      ),
-                      Text(
-                        'Year',
-                        style: kstyle,
-                      ),
-                      Text(
-                        'License plate number',
+                       licenseplatenumber,
                         style: kstyle,
                       )
                     ]),
