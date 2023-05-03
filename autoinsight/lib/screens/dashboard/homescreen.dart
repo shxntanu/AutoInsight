@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
+import 'package:get/get.dart';
 
 import '../dashboard/previoustrip.dart';
 import '../navigationbarScreens/profile_page.dart';
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 12,
             fontWeight: FontWeight.bold,
             onClick: () {
-              Navigator.pushNamed(context, '/profile');
+              Get.toNamed('/profile');
             }),
         TabData(
             icon: Icons.map_sharp,
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 12,
             fontWeight: FontWeight.bold,
             onClick: () {
-              //TODO: navigate to feed page/blindspot animation page
+              Get.toNamed('/videolist');
             }),
         TabData(
           icon: Icons.history_edu,
