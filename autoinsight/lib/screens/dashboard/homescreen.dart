@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../dashboard/previoustrip.dart';
 import '../navigationbarScreens/profile_page.dart';
@@ -27,8 +28,16 @@ class _HomeScreenState extends State<HomeScreen> {
             title: 'Profile',
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            onClick: () {
-              Get.toNamed('/profile');
+            onClick: () async {
+              final SharedPreferences prefs = await SharedPreferences.getInstance();
+              Get.to(
+                  Profile_Page(
+                    name: prefs.getString('name') ?? "null", 
+                    carname: prefs.getString('carName') ?? "null", 
+                    year: prefs.getString('year') ?? "null", 
+                    licenseplatenumber: prefs.getString('licencePlate') ?? "null",
+                  )
+                );
             }),
         TabData(
             icon: Icons.map_sharp,
@@ -74,6 +83,17 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     return Expanded(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+        tooltip: 'New Trip',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/newtrip');
+                },
+                backgroundColor: const Color(0xFF03045E),
+                child: const Icon(
+                  Icons.add,
+                  size: 33,
+                ),
+        ),
         body: Column(children: <Widget>[
           const SizedBox(
             height: 35,
@@ -133,14 +153,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 PreviousTrip(
                   start: 'pune',
                   end: 'nagar',
+                  distance: 23,
                 ),
                 PreviousTrip(
                   start: 'katraj',
                   end: 'fc road',
+                  distance: 45,
                 ),
                 PreviousTrip(
                   start: 'mumbai',
                   end: 'pune',
+                  distance: 34,
                 )
               ],
             ),
@@ -149,25 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
           height: 200,
             ),
-            Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: FloatingActionButton(
-                tooltip: 'New Trip',
-                onPressed: () {
-                  Navigator.pushNamed(context, '/newtrip');
-                },
-                backgroundColor: const Color(0xFF03045E),
-                child: const Icon(
-                  Icons.add,
-                  size: 33,
-                ),
-              ),
-            ),
-          ],
-            )
+            
           ]),
         ]),
         bottomNavigationBar: CircleBottomNavigationBar(
@@ -191,56 +196,3 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-
-// [
-//                   Text('Create New Trip',),
-//                   SizedBox(height: 10,),
-//                   TextField(
-//                     decoration: InputDecoration(
-//                       border: OutlineInputBorder(),
-//                       hintText: 'Enter current location',
-//                     ),
-//                   ),
-//                   SizedBox(height: 10,),
-//                   TextField(
-//                     decoration: InputDecoration(
-//                       border: OutlineInputBorder(),
-//                       hintText: 'Enter destination',
-//                     ),
-//                   ),
-//                 ]
-
-// List<TabData> getTabsData() {
-//   return [
-//     TabData(
-//         icon: Icons.person,
-//         iconSize: 25.0,
-//         title: 'Profile',
-//         fontSize: 12,
-//         fontWeight: FontWeight.bold,
-//         onClick: () {
-//           Navigator.pushNamed(context as BuildContext, '/profile');
-//         }),
-//     TabData(
-//       icon: Icons.map_sharp,
-//       iconSize: 25,
-//       title: 'Area Feed',
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     TabData(
-//       icon: Icons.edit_document,
-//       iconSize: 25,
-//       title: 'Search',
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     TabData(
-//       icon: Icons.settings,
-//       iconSize: 25,
-//       title: 'Settings',
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//   ];
-// }
