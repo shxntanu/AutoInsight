@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class PreviousTrip extends StatelessWidget {
   late String start, end;
-  PreviousTrip({required this.start, required this.end});
+  double distance;
+  PreviousTrip({required this.start, required this.end,required this.distance});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,11 +14,12 @@ class PreviousTrip extends StatelessWidget {
           borderOnForeground: true,
           color: Colors.white,
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(start),
                 Text(end),
+                Text(distance.toString()),
               ]),
         ),
       ),
