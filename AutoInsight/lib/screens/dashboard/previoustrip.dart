@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PreviousTrip extends StatelessWidget {
-  late String start, end;
-  PreviousTrip({required this.start, required this.end});
+  String start, end;
+  String distance;
+  PreviousTrip(
+      {required this.start, required this.end, required this.distance});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,6 +20,7 @@ class PreviousTrip extends StatelessWidget {
               children: [
                 Text(start),
                 Text(end),
+                Text(distance),
               ]),
         ),
       ),
