@@ -9,6 +9,7 @@ import '../screens/camera_page/camera_page.dart';
 import '../screens/car_screen/car_screen.dart';
 import '../screens/dashboard/homescreen.dart';
 import '../screens/dashboard/components/newtrip.dart';
+import '../screens/videolist_screen/list_page.dart';
 
 import '../firebase_options.dart';
 
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/home', page: () => HomeScreen()),
         GetPage(name: '/profile',  page: () => const Profile_Page()),
         GetPage(name: '/newtrip', page: () => const New_trip()),
+        GetPage(name: '/videolist', page: () => VideoList()),
       ],
     );
   }
