@@ -114,8 +114,8 @@ class SignUpPage extends StatelessWidget {
                       }
 
                       if(user != null) {
-                        final path = 'users/${_ctr1.text}/profile.png';
-                        Reference ref = storage.ref().child(path);
+                        // final path = 'users/${_ctr1.text}/profile.png';
+                        // Reference ref = storage.ref().child(path);
                         
                         final SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -123,9 +123,11 @@ class SignUpPage extends StatelessWidget {
                         prefs.setString('password', _ctr2.text);
                         prefs.setBool('logged_in', true);
                       }
+
+                      //TODO: Add navigation to home screen
                     }, 
                     child: const Text(
-                      "Sign Up",
+                      "Next",
                     ),
                   ),
                 ]),
