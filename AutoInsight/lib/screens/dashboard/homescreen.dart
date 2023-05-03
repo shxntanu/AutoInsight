@@ -1,10 +1,8 @@
-//import 'dart:js';
-
+import 'package:autoinsight/screens/dashboard/components/new_trip.dart';
 import 'package:autoinsight/screens/dashboard/previoustrip.dart';
 import 'package:autoinsight/screens/navigationbarScreens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:autoinsight/main.dart';
-//import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
@@ -17,6 +15,24 @@ class FinalHomeScreen extends StatefulWidget {
 class _FinalHomeScreenState extends State<FinalHomeScreen> {
   int _index = 0;
   int currentPage = 0;
+
+  List<PreviousTrip> trips = [
+    PreviousTrip(
+      start: 'pune',
+      end: 'nagar',
+      distance: '30',
+    ),
+    PreviousTrip(
+      start: 'katraj',
+      end: 'fc road',
+      distance: '45',
+    ),
+    PreviousTrip(
+      start: 'mumbai',
+      end: 'pune',
+      distance: '100',
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +91,15 @@ class _FinalHomeScreenState extends State<FinalHomeScreen> {
     }
     return Expanded(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+                context: context,
+                builder: (context) => New_trip((start, end, distance) {}));
+          },
+          backgroundColor: Colors.blueGrey.shade900,
+          child: Icon(Icons.add),
+        ),
         body: Column(children: <Widget>[
           SizedBox(
             height: 35,
@@ -132,18 +157,6 @@ class _FinalHomeScreenState extends State<FinalHomeScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    PreviousTrip(
-                      start: 'pune',
-                      end: 'nagar',
-                    ),
-                    PreviousTrip(
-                      start: 'katraj',
-                      end: 'fc road',
-                    ),
-                    PreviousTrip(
-                      start: 'mumbai',
-                      end: 'pune',
-                    )
                   ],
                 ),
               ),
@@ -151,26 +164,19 @@ class _FinalHomeScreenState extends State<FinalHomeScreen> {
             SizedBox(
               height: 200,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: FloatingActionButton(
-                    tooltip: 'New Trip',
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/newtrip');
-                    },
-                    backgroundColor: Color(0xFF03045E),
-                    child: Icon(
-                      Icons.add,
-                      size: 33,
-                    ),
-                  ),
-                ),
-              ],
-            )
           ])),
+          Expanded(
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0))),
+                child: ListView(
+                  children: trips,
+                )),
+          )
         ]),
         bottomNavigationBar: CircleBottomNavigationBar(
           initialSelection: currentPage,
@@ -192,57 +198,3 @@ class _FinalHomeScreenState extends State<FinalHomeScreen> {
     );
   }
 }
-
-
-// [
-//                   Text('Create New Trip',),
-//                   SizedBox(height: 10,),
-//                   TextField(
-//                     decoration: InputDecoration(
-//                       border: OutlineInputBorder(),
-//                       hintText: 'Enter current location',
-//                     ),
-//                   ),
-//                   SizedBox(height: 10,),
-//                   TextField(
-//                     decoration: InputDecoration(
-//                       border: OutlineInputBorder(),
-//                       hintText: 'Enter destination',
-//                     ),
-//                   ),
-//                 ]
-
-// List<TabData> getTabsData() {
-//   return [
-//     TabData(
-//         icon: Icons.person,
-//         iconSize: 25.0,
-//         title: 'Profile',
-//         fontSize: 12,
-//         fontWeight: FontWeight.bold,
-//         onClick: () {
-//           Navigator.pushNamed(context as BuildContext, '/profile');
-//         }),
-//     TabData(
-//       icon: Icons.map_sharp,
-//       iconSize: 25,
-//       title: 'Area Feed',
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     TabData(
-//       icon: Icons.edit_document,
-//       iconSize: 25,
-//       title: 'Search',
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//     TabData(
-//       icon: Icons.settings,
-//       iconSize: 25,
-//       title: 'Settings',
-//       fontSize: 12,
-//       fontWeight: FontWeight.bold,
-//     ),
-//   ];
-// }
