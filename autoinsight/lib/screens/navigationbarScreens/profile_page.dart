@@ -44,10 +44,6 @@ class Profile_Page extends StatelessWidget {
                         carname,
                         style: kstyle,
                       ),
-                      // Text(
-                      //   carmodel,
-                      //   style: kstyle,
-                      // ),
                       Text(
                         year,
                         style: kstyle,
