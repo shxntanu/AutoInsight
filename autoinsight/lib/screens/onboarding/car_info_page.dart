@@ -127,6 +127,8 @@ class carInfoPage extends StatelessWidget {
                           prefs.getString("licencePlate") ?? "null",
                         );
 
+                        final user = _auth.createUserWithEmailAndPassword(email: prefs.getString("email") ?? "null", password: prefs.getString("password") ?? "null");
+
                         Get.offAll(HomeScreen());
                     }, 
                     child: const Text(
