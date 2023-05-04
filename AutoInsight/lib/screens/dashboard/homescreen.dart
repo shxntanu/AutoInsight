@@ -95,7 +95,8 @@ class _FinalHomeScreenState extends State<FinalHomeScreen> {
           onPressed: () {
             showModalBottomSheet(
                 context: context,
-                builder: (context) => New_trip((start, end, distance) {}));
+                builder: (context) => New_trip()
+            );
           },
           backgroundColor: Colors.blueGrey.shade900,
           child: Icon(Icons.add),
