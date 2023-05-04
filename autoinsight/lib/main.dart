@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/camera', page: () => const CameraPage()),
         GetPage(name: '/car', page: () => const CarScreen()),
         GetPage(name: '/home', page: () => HomeScreen()),
-        GetPage(name: '/profile',  page: () => const Profile_Page()),
         GetPage(name: '/newtrip', page: () => const New_trip()),
         GetPage(name: '/videolist', page: () => VideoList()),
       ],
