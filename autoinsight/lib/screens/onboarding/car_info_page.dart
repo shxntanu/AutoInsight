@@ -1,10 +1,14 @@
+import 'package:autoinsight/screens/dashboard/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../controllers/backend_controller.dart';
 import '../onboarding/components/signin_textfield.dart';
+
+final _backendCtr = Get.put(backendController());
 
 class carInfoPage extends StatelessWidget {
 
@@ -109,9 +113,21 @@ class carInfoPage extends StatelessWidget {
                         final SharedPreferences prefs = await SharedPreferences.getInstance();
 
                         prefs.setString('carName', _name.text);
-                        prefs.setString('year', _year.text);
+                        prefs.setString('carYear', _year.text);
                         prefs.setString('licencePlate', _licencePlate.text);
                       
+                        _backendCtr.createUser(
+                          prefs.getString("email") ?? "null", 
+                          prefs.getString("password") ?? "null", 
+                          prefs.getString("name") ?? "null", 
+                          prefs.getString("phone") ?? "null", 
+                          prefs.getString("address") ?? "null",  
+                          prefs.getString("carName") ?? "null", 
+                          prefs.getString("carYear") ?? "null",
+                          prefs.getString("licencePlate") ?? "null",
+                        );
+
+                        Get.offAll(HomeScreen());
                     }, 
                     child: const Text(
                       "Sign Up",
