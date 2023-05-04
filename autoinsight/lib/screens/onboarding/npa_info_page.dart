@@ -6,6 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../onboarding/components/signin_textfield.dart';
 
+import '../onboarding/car_info_page.dart';
+
 class npaInfoPage extends StatelessWidget {
 
   final _name = TextEditingController();
@@ -111,10 +113,12 @@ class npaInfoPage extends StatelessWidget {
                         prefs.setString('name', _name.text);
                         prefs.setString('phone', _phone.text);
                         prefs.setString('address', _address.text);
+
+                        Get.offAll(carInfoPage());
                       
                     }, 
                     child: const Text(
-                      "Sign Up",
+                      "Next",
                     ),
                   ),
                 ]),
