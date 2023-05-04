@@ -6,6 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../onboarding/components/signin_textfield.dart';
 
+import '../onboarding/npa_info_page.dart';
+
 class SignUpPage extends StatelessWidget {
 
   final _ctr1 = TextEditingController();
@@ -124,7 +126,7 @@ class SignUpPage extends StatelessWidget {
                         prefs.setBool('logged_in', true);
                       }
 
-                      //TODO: Add navigation to home screen
+                      Get.offAll(npaInfoPage());
                     }, 
                     child: const Text(
                       "Next",
