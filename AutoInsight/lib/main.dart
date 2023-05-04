@@ -40,9 +40,9 @@ class AutoInsight extends StatelessWidget {
         '/og': (context) => const OGEntryPage(), // Original landing screen
         '/pullup': (context) =>
             const PullUpLandingScreen(), // Pull Up Landing Screen
-        '/signin': (context) => SignInPage(), //final landing
+        '/signin': (context) => const SignInPage(), //final landing
         '/dashboard': (context) => FinalHomeScreen(), // New Sign In Page
-        '/profile': (context) => Profile_Page(), //user profile page
+        '/profile': (context) => const Profile_Page(), //user profile page
         '/newtrip': (context) => New_trip(), //new trip popup
       },
     );
