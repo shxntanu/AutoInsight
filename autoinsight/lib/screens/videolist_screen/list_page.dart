@@ -64,14 +64,14 @@ class _VideoListState extends State<VideoList> {
       );
 
   Widget buildFile(BuildContext context, FirebaseFile file) => ListTile(
-        leading: ClipOval(
-          child: Image.network(
-            file.url,
-            width: 52,
-            height: 52,
-            fit: BoxFit.cover,
-          ),
-        ),
+        // leading: ClipOval(
+        //   child: Image.network(
+        //     file.url,
+        //     width: 52,
+        //     height: 52,
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         title: Text(
           file.name,
           style: const TextStyle(
@@ -80,7 +80,7 @@ class _VideoListState extends State<VideoList> {
             color: Colors.blue,
           ),
         ),
-        onTap: () => Get.to(() => VideoView(file: file.url)),
+        onTap: () => Get.to(() => VideoView(url: file.url)),
       );
 
   Widget buildHeader(int length) => ListTile(
