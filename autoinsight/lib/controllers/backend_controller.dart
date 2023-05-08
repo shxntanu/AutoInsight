@@ -22,4 +22,15 @@ class backendController extends GetxController {
     _userCtr.setUser(userData);
     await _firestoreInstance.collection("users").doc(email).collection("user_data").doc("user_info").set(userData.toMap());
   }
+
+  Future<dynamic> login( String email, String pass ) async {
+    final user = await _firestoreInstance.collection("users").doc(email).collection("user_data").doc("user_info").get();
+    if (user.exists) {
+      final userData = User.fromMap(user.data() as Map<String, dynamic>);
+      _userCtr.setUser(userData);
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
