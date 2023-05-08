@@ -40,9 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
             }),
         TabData(
-            icon: Icons.map_sharp,
+            icon: Icons.ondemand_video,
             iconSize: 25,
-            title: 'Area Feed',
+            title: 'Video Feed',
             fontSize: 12,
             fontWeight: FontWeight.bold,
             onClick: () {
@@ -136,36 +136,51 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(15.0),
           child: Card(
             color: const Color.fromARGB(67, 174, 175, 247),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'Previous Trips',
-                    style: TextStyle(color: Colors.white, fontSize: 30),
-                  ),
+            child: SizedBox(
+              height: 300,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Previous Trips',
+                        style: TextStyle(color: Colors.white, fontSize: 30),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    PreviousTrip(
+                      start: 'pune',
+                      end: 'nagar',
+                      distance: 23,
+                    ),
+                    PreviousTrip(
+                      start: 'katraj',
+                      end: 'fc road',
+                      distance: 45,
+                    ),
+                    PreviousTrip(
+                      start: 'mumbai',
+                      end: 'pune',
+                      distance: 34,
+                    ),
+                    PreviousTrip(
+                      start: 'mumbai',
+                      end: 'pune',
+                      distance: 34,
+                    ),
+                    PreviousTrip(
+                      start: 'mumbai',
+                      end: 'pune',
+                      distance: 34,
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                PreviousTrip(
-                  start: 'pune',
-                  end: 'nagar',
-                  distance: 23,
-                ),
-                PreviousTrip(
-                  start: 'katraj',
-                  end: 'fc road',
-                  distance: 45,
-                ),
-                PreviousTrip(
-                  start: 'mumbai',
-                  end: 'pune',
-                  distance: 34,
-                )
-              ],
+              ),
             ),
           ),
             ),
