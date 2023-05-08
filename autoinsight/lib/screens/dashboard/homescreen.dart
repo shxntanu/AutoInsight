@@ -1,3 +1,4 @@
+import 'package:autoinsight/screens/navigationbarScreens/alert_screen.dart';
 import 'package:flutter/material.dart';
 //import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 // import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -55,11 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
           fontWeight: FontWeight.bold,
         ),
         TabData(
-          icon: Icons.settings,
+          icon: Icons.warning,
           iconSize: 25,
-          title: 'Settings',
+          title: 'Alerts',
           fontSize: 12,
           fontWeight: FontWeight.bold,
+          onClick: (){
+              Get.toNamed('/alerts');
+            },
         ),
       ];
     }
@@ -103,7 +107,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             CircleAvatar(
               radius: 20,
-              backgroundImage: AssetImage('images/autoinsight.png'
+              backgroundImage: AssetImage(
+                'images/autoinsight.png'
               ),
             ),
             SizedBox(
