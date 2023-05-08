@@ -47,6 +47,7 @@ dependencies:
   path_provider: ^2.0.14
   shared_preferences: ^2.1.0
   chewie: ^1.4.0
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
