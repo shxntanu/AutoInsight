@@ -29,15 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 12,
             fontWeight: FontWeight.bold,
             onClick: () async {
-              final SharedPreferences prefs = await SharedPreferences.getInstance();
-              Get.to(
-                  Profile_Page(
-                    name: prefs.getString('name') ?? "null", 
-                    carname: prefs.getString('carName') ?? "null", 
-                    year: prefs.getString('carYear') ?? "null", 
-                    licenseplatenumber: prefs.getString('licencePlate') ?? "null",
-                  )
-                );
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              Get.to(Profile_Page(
+                name: prefs.getString('name') ?? "null",
+                carname: prefs.getString('carName') ?? "null",
+                year: prefs.getString('carYear') ?? "null",
+                licenseplatenumber: prefs.getString('licencePlate') ?? "null",
+              ));
             }),
         TabData(
             icon: Icons.ondemand_video,
@@ -84,15 +83,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Expanded(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-        tooltip: 'New Trip',
-                onPressed: () {
-                  Navigator.pushNamed(context, '/newtrip');
-                },
-                backgroundColor: const Color(0xFF03045E),
-                child: const Icon(
-                  Icons.add,
-                  size: 33,
-                ),
+          tooltip: 'New Trip',
+          onPressed: () {
+            Navigator.pushNamed(context, '/newtrip');
+          },
+          backgroundColor: const Color(0xFF03045E),
+          child: const Icon(
+            Icons.add,
+            size: 33,
+          ),
         ),
         body: Column(children: <Widget>[
           const SizedBox(
@@ -104,8 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             CircleAvatar(
               radius: 20,
-              // backgroundImage: AssetImage(//insert image here
-              // ),
+              backgroundImage: AssetImage('images/autoinsight.png'
+              ),
             ),
             SizedBox(
               width: 10,
@@ -133,61 +132,60 @@ class _HomeScreenState extends State<HomeScreen> {
           ]),
           Column(children: <Widget>[
             Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Card(
-            color: const Color.fromARGB(67, 174, 175, 247),
-            child: SizedBox(
-              height: 300,
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        'Previous Trips',
-                        style: TextStyle(color: Colors.white, fontSize: 30),
-                      ),
+              padding: const EdgeInsets.all(15.0),
+              child: Card(
+                color: const Color.fromARGB(67, 174, 175, 247),
+                child: SizedBox(
+                  height: 300,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            'Previous Trips',
+                            style: TextStyle(color: Colors.white, fontSize: 30),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        PreviousTrip(
+                          start: 'pune',
+                          end: 'nagar',
+                          distance: 23,
+                        ),
+                        PreviousTrip(
+                          start: 'katraj',
+                          end: 'fc road',
+                          distance: 45,
+                        ),
+                        PreviousTrip(
+                          start: 'mumbai',
+                          end: 'pune',
+                          distance: 34,
+                        ),
+                        PreviousTrip(
+                          start: 'mumbai',
+                          end: 'pune',
+                          distance: 34,
+                        ),
+                        PreviousTrip(
+                          start: 'mumbai',
+                          end: 'pune',
+                          distance: 34,
+                        )
+                      ],
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    PreviousTrip(
-                      start: 'pune',
-                      end: 'nagar',
-                      distance: 23,
-                    ),
-                    PreviousTrip(
-                      start: 'katraj',
-                      end: 'fc road',
-                      distance: 45,
-                    ),
-                    PreviousTrip(
-                      start: 'mumbai',
-                      end: 'pune',
-                      distance: 34,
-                    ),
-                    PreviousTrip(
-                      start: 'mumbai',
-                      end: 'pune',
-                      distance: 34,
-                    ),
-                    PreviousTrip(
-                      start: 'mumbai',
-                      end: 'pune',
-                      distance: 34,
-                    )
-                  ],
+                  ),
                 ),
               ),
             ),
-          ),
-            ),
             const SizedBox(
-          height: 200,
+              height: 200,
             ),
-            
           ]),
         ]),
         bottomNavigationBar: CircleBottomNavigationBar(
@@ -210,4 +208,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
