@@ -25,6 +25,7 @@ class _VideoListState extends State<VideoList> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color(0xFFFF6D6D),
           title: const Text("Video Page"),
           centerTitle: true,
         ),
