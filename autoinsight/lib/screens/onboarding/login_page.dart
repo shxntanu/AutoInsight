@@ -1,3 +1,4 @@
+import 'package:autoinsight/utils/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -106,9 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                           );
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
-                            print('No user found for that email.');
+                            showSnackbar(context, 'No user found for that email.');
                           } else if (e.code == 'wrong-password') {
-                            print('Wrong password provided for that user.');
+                            showSnackbar(context, 'Wrong password provided for that user.');
                           }
                         } 
                     }, 
