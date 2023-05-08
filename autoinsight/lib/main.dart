@@ -1,3 +1,4 @@
+import 'package:autoinsight/screens/navigationbarScreens/alert_screen.dart';
 import 'package:autoinsight/screens/navigationbarScreens/profile_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/home', page: () => HomeScreen()),
         GetPage(name: '/newtrip', page: () => const New_trip()),
         GetPage(name: '/videolist', page: () => VideoList()),
+        GetPage(name: '/alerts', page: () => const Alertscreen()),
       ],
     );
   }
