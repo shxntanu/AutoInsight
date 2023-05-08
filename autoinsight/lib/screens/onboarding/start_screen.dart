@@ -1,8 +1,10 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../onboarding/login_page.dart';
 import '../onboarding/signup_page.dart';
+
 
 //import '../dashboard/components/new_trip.dart';
 
@@ -22,12 +24,24 @@ class _StartScreenState extends State<StartScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'AutoInsight',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFFF6D6D),
+              Center(
+                child: SizedBox(
+                  width: 250.0,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontSize: 30.0,
+                      fontFamily: 'Bobbers',
+                    ),
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        TyperAnimatedText('AutoInsight',textStyle: TextStyle(color: Color(0xFFFF6D6D),fontSize: 45.0,fontWeight: FontWeight.bold)),
+                        
+                      ],
+                      onTap: () {
+                        print("Tap Event");
+                      },
+                    ),
+                  ),
                 ),
               ),
               ElevatedButton(
