@@ -1,3 +1,4 @@
+import 'package:autoinsight/controllers/trip_controller.dart';
 import 'package:autoinsight/screens/navigationbarScreens/alert_screen.dart';
 import 'package:flutter/material.dart';
 //import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
@@ -7,8 +8,10 @@ import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../dashboard/previoustrip.dart';
+import '../../models/previoustrip.dart';
 import '../navigationbarScreens/profile_page.dart';
+
+final tripCtr = Get.put(tripController());
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -143,46 +146,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SizedBox(
                   height: 300,
                   child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            'Previous Trips',
-                            style: TextStyle(color: Colors.white, fontSize: 30),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        PreviousTrip(
-                          start: 'pune',
-                          end: 'nagar',
-                          distance: 23,
-                        ),
-                        PreviousTrip(
-                          start: 'katraj',
-                          end: 'fc road',
-                          distance: 45,
-                        ),
-                        PreviousTrip(
-                          start: 'mumbai',
-                          end: 'pune',
-                          distance: 34,
-                        ),
-                        PreviousTrip(
-                          start: 'mumbai',
-                          end: 'pune',
-                          distance: 34,
-                        ),
-                        PreviousTrip(
-                          start: 'mumbai',
-                          end: 'pune',
-                          distance: 34,
-                        )
-                      ],
+                    child: ListView.builder(
+                      itemCount: tripCtr.getTripCount,
+                      itemBuilder: (context, index) {
+                        final trip = tripCtr.getTrip(index);
+                        return PreviousTrip(
+                          start: trip.start,
+                          end: trip.end,
+                          distance: trip.distance,
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -213,3 +186,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+// PreviousTrip(
+//   start: 'katraj',
+//   end: 'fc road',
+//   distance: 45,
+// ),
