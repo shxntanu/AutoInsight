@@ -1,28 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../controllers/trip_controller.dart';
+import '../../../models/previoustrip.dart';
+
+final tripCtr = Get.put(tripController());
 
 class New_trip extends StatelessWidget {
-  const New_trip({super.key});
+
+  final _ctr1 = TextEditingController();
+  final _ctr2 = TextEditingController();
+  final _ctr3 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.white,
-      title: Text('Create New Trip'),
+      title: const Text('Create New Trip'),
       content: Column(
         children: [
           TextField(
-            decoration: InputDecoration(hintText: 'current location'),
+            controller: _ctr1,
+            decoration: const InputDecoration(hintText: 'current location'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           TextField(
-            decoration: InputDecoration(hintText: 'destinaton'),
+            controller: _ctr2,
+            decoration: const InputDecoration(hintText: 'destinaton'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          ElevatedButton(onPressed: () {}, child: Text('Create'))
+          TextField(
+            controller: _ctr3,
+            decoration: const InputDecoration(hintText: 'destinaton'),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          ElevatedButton(onPressed: () {
+            tripCtr.addTrip(
+              PreviousTrip(
+                start: _ctr1.text,
+                end: _ctr2.text,
+                distance: double.parse(_ctr3.text)
+              )
+            );
+            Get.back();
+          }, child: const Text('Create'))
         ],
       ),
     );
