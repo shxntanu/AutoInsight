@@ -145,17 +145,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: const Color.fromARGB(67, 174, 175, 247),
                 child: SizedBox(
                   height: 300,
+                  width: MediaQuery.of(context).size.width*0.9,
                   child: SingleChildScrollView(
-                    child: ListView.builder(
-                      itemCount: tripCtr.getTripCount,
-                      itemBuilder: (context, index) {
-                        final trip = tripCtr.getTrip(index);
-                        return PreviousTrip(
-                          start: trip.start,
-                          end: trip.end,
-                          distance: trip.distance,
-                        );
-                      },
+                    // child: ListView.builder(
+                    //   // itemCount: tripCtr.getTripCount,
+                    //   itemCount: 5,
+                    //   itemBuilder: (context, index) {
+                    //     // final trip = tripCtr.getTrip(index);
+                    //     // return PreviousTrip(
+                    //     //   start: trip.start,
+                    //     //   end: trip.end,
+                    //     //   distance: trip.distance,
+                    //     // );
+
+                    //     return ListTile(
+                    //         leading: const Icon(Icons.list),
+                    //         trailing: const Text(
+                    //           "GFG",
+                    //           style: TextStyle(color: Colors.green, fontSize: 15),
+                    //         ),
+                    //         title: Text("List item $index")
+                    //     );
+                    //   },
+                    // ),
+                    child: Column(
+                      children: tripCtr.getTripList,
                     ),
                   ),
                 ),
