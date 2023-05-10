@@ -5,6 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import '../screens/onboarding/signup_page.dart';
 import '../screens/camera_page/camera_page.dart';
@@ -17,6 +18,9 @@ import '../screens/onboarding/start_screen.dart';
 import '../firebase_options.dart';
 
 late final bool loggedin;
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +42,9 @@ class MyApp extends StatelessWidget {
     
     return GetMaterialApp(
       title: 'AutoInsight',
+      theme: ThemeData(
+        fontFamily: 'San Francisco',
+      ),
       // home: SignUpPage(),
       home: loggedin ? HomeScreen() : StartScreen(),
       getPages: [
@@ -45,7 +52,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/camera', page: () => const CameraPage()),
         GetPage(name: '/car', page: () => const CarScreen()),
         GetPage(name: '/home', page: () => HomeScreen()),
-        GetPage(name: '/newtrip', page: () => const New_trip()),
+        GetPage(name: '/newtrip', page: () => New_trip()),
         GetPage(name: '/videolist', page: () => VideoList()),
         GetPage(name: '/alerts', page: () => const Alertscreen()),
       ],
