@@ -10,17 +10,20 @@ class PreviousTrip extends StatelessWidget {
     return GestureDetector(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(30, 15, 30, 15),
-        child: Card(
-          borderOnForeground: true,
-          color: Colors.white,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(start),
-                Text(end),
-                Text(distance.toString()),
-              ]),
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width*0.75,
+          child: Card(
+            borderOnForeground: true,
+            color: Colors.white,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(start),
+                  Text(end),
+                  Text(distance.toString()),
+                ]),
+          ),
         ),
       ),
     );
