@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../utils/alert_card.dart';
 import '../../utils/alertcard_separator.dart';
 
-class Alertscreen extends StatelessWidget {
-  const Alertscreen({super.key});
+class AlertScreen extends StatelessWidget {
+  const AlertScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
