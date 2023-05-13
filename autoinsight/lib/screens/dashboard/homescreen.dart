@@ -1,5 +1,6 @@
 import 'package:autoinsight/controllers/trip_controller.dart';
 import 'package:autoinsight/screens/navigationbarScreens/alert_screen.dart';
+import 'package:autoinsight/screens/videolist_screen/list_page.dart';
 import 'package:flutter/material.dart';
 //import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 // import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 12,
             fontWeight: FontWeight.bold,
             onClick: () {
-              Get.toNamed('/videolist');
+              Get.to(VideoList());
             }),
         TabData(
           icon: Icons.history_edu,
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fontSize: 12,
           fontWeight: FontWeight.bold,
           onClick: (){
-              Get.toNamed('/alerts');
+              Get.to(AlertScreen());
             },
         ),
       ];
