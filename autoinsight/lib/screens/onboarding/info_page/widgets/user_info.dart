@@ -8,7 +8,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import '../../../../utils/theme.dart';
 import '../../../../utils/snackbar.dart';
 
-import '../../../../unused_pages/npa_info_page.dart';
+import '../../../unused_pages/npa_info_page.dart';
 
 final storage = FirebaseStorage.instance;
 final auth = FirebaseAuth.instance;

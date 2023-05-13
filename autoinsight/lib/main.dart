@@ -8,13 +8,13 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import 'unused_pages/signup_page.dart';
+import 'screens/unused_pages/signup_page.dart';
 import '../screens/camera_page/camera_page.dart';
 import '../screens/car_screen/car_screen.dart';
 import '../screens/dashboard/homescreen.dart';
 import '../screens/dashboard/components/newtrip.dart';
 import '../screens/videolist_screen/list_page.dart';
-import 'unused_pages/start_screen.dart';
+import 'screens/unused_pages/start_screen.dart';
 
 import '../firebase_options.dart';
 
