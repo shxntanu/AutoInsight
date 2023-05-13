@@ -21,11 +21,20 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -51,33 +60,5 @@ class DefaultFirebaseOptions {
     authDomain: 'autoinsight-1.firebaseapp.com',
     storageBucket: 'autoinsight-1.appspot.com',
     measurementId: 'G-KXR5EE0P74',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC6H_T7UBpZjMFaez01Y34I_5wD1mcoaKk',
-    appId: '1:1073925508284:android:111b5a16daf03606dd94b9',
-    messagingSenderId: '1073925508284',
-    projectId: 'autoinsight-1',
-    storageBucket: 'autoinsight-1.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD8RimFVs6T2URa0z7wH5bDGiusCEae-KY',
-    appId: '1:1073925508284:ios:6698597054f9a48edd94b9',
-    messagingSenderId: '1073925508284',
-    projectId: 'autoinsight-1',
-    storageBucket: 'autoinsight-1.appspot.com',
-    iosClientId: '1073925508284-aq21uc8hpim63bhnpiq2nbpc27psmrr2.apps.googleusercontent.com',
-    iosBundleId: 'com.example.autoinsightDetect',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD8RimFVs6T2URa0z7wH5bDGiusCEae-KY',
-    appId: '1:1073925508284:ios:6698597054f9a48edd94b9',
-    messagingSenderId: '1073925508284',
-    projectId: 'autoinsight-1',
-    storageBucket: 'autoinsight-1.appspot.com',
-    iosClientId: '1073925508284-aq21uc8hpim63bhnpiq2nbpc27psmrr2.apps.googleusercontent.com',
-    iosBundleId: 'com.example.autoinsightDetect',
   );
 }
