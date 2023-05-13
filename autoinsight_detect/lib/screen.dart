@@ -1,49 +1,88 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final _controllerList = List.generate(8, (_) => TextEditingController());
+  final _colorList = List<Color>.filled(8, Colors.grey);
+
+  @override
+  void dispose() {
+    _controllerList.forEach((controller) => controller.dispose());
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Radial Divisions'),
+        title: Text('Colorable Circular Outline'),
       ),
       body: Center(
-        child: CustomPaint(
-          painter: RadialDivisionsPainter(),
-          child: Container(),
+        child: Stack(
+          children: [
+            CustomPaint(
+              painter: CircularOutlinePainter(_colorList),
+              size: Size(200, 200),
+            ),
+            // Positioned.fill(
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       for (var i = 0; i < _controllerList.length; i++)
+            //         Padding(
+            //           padding: const EdgeInsets.all(8.0),
+            //           child: TextField(
+            //             controller: _controllerList[i],
+            //             decoration: InputDecoration(
+            //               hintText: 'Color $i',
+            //             ),
+            //             onChanged: (value) {
+            //               setState(() {
+            //                 _colorList[i] =
+            //                     value.isNotEmpty ? Color(int.parse(value, radix: 16)) : Colors.grey;
+            //               });
+            //             },
+            //           ),
+            //         ),
+            //     ],
+            //   ),
+            // ),
+          ],
         ),
       ),
     );
   }
 }
 
-class RadialDivisionsPainter extends CustomPainter {
+class CircularOutlinePainter extends CustomPainter {
+  final List<Color> colorList;
+
+  CircularOutlinePainter(this.colorList);
+
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-    final radius = min(size.width / 2, size.height / 2);
-    final colors = [
-      Colors.red,
-      Colors.orange,
-      Colors.yellow,
-      Colors.green,
-      Colors.blue,
-      Colors.indigo,
-      Colors.purple,
-      Colors.pink,
-    ];
+    final radius = min(size.width , size.height );
 
-    final sweepAngle = 2 * pi / colors.length;
-    var startAngle = 0.0;
+    final sweepAngle = 2 * pi / colorList.length;
 
-    for (var i = 0; i < colors.length; i++) {
-      final paint = Paint()..color = colors[i];
+    var startAngle = -pi / 2; // Start at the top
+
+    for (var i = 0; i < colorList.length; i++) {
+      final paint = Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 5
+        ..color = colorList[i];
       canvas.drawArc(
         Rect.fromCircle(center: center, radius: radius),
         startAngle,
         sweepAngle,
-        true,
+        false,
         paint,
       );
       startAngle += sweepAngle;
@@ -51,7 +90,7 @@ class RadialDivisionsPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(RadialDivisionsPainter oldDelegate) {
-    return false;
+  bool shouldRepaint(CircularOutlinePainter oldDelegate) {
+    return true;
   }
 }
