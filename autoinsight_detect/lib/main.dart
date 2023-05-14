@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-import 'screen.dart';
+import 'package:get/get.dart';
+
+import 'package:autoinsight_detect/screens/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,12 +10,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Colorable Circular Outline',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
+    return GetMaterialApp(
+      title: 'Car Detect',
+      home: LoginPage(),
     );
   }
 }
