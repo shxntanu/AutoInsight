@@ -1,173 +1,131 @@
 import 'package:flutter/material.dart';
-
-import '../screens/login_page/widgets/sign_in.dart';
-import '../screens/login_page/widgets/sign_up.dart';
-import '../utils/theme.dart';
-import '../../../utils/bubble_indicator_painter.dart';
+import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../screens/login_page/widgets/signin_textfield.dart';
+import '../utils/snackbar.dart';
+import 'package:autoinsight_detect/screens/home/car_screen.dart';
 
 class LoginPage extends StatefulWidget {
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage>
-    with SingleTickerProviderStateMixin {
+class _LoginPageState extends State<LoginPage> {
+  final _ctr1 = TextEditingController();
 
-  late PageController _pageController;
+  final _ctr2 = TextEditingController();
 
-  Color left = Colors.black;
-  Color right = Colors.white;
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController();
-  }
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SingleChildScrollView(
-      physics: const ClampingScrollPhysics(),
-      child: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-              Color.fromARGB(255, 240, 87, 87),
-              Color.fromARGB(255, 252, 125, 108),
-              Color.fromARGB(255, 248, 154, 114),
-              Color.fromARGB(255, 246, 187, 169),
-              Color.fromARGB(255, 239, 220, 220)
-              ]
-            ),
+            Color.fromARGB(255, 240, 87, 87),
+            Color.fromARGB(255, 252, 125, 108),
+            Color.fromARGB(255, 248, 154, 114),
+            Color.fromARGB(255, 246, 187, 169),
+            Color.fromARGB(255, 239, 220, 220)
+          ])),
+      child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            foregroundColor: const Color(0xFF03045E),
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 75.0),
-                child: Image(
-                  height:
-                      MediaQuery.of(context).size.height > 800 ? 191.0 : 150,
-                  fit: BoxFit.fill,
-                  image: const AssetImage('images/autoinsight (logo).png')
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: _buildMenuBar(context),
-              ),
-              Expanded(
-                flex: 2,
-                child: PageView(
-                  controller: _pageController,
-                  physics: const ClampingScrollPhysics(),
-                  onPageChanged: (int i) {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    if (i == 0) {
-                      setState(() {
-                        right = Colors.white;
-                        left = Colors.black;
-                      });
-                    } else if (i == 1) {
-                      setState(() {
-                        right = Colors.black;
-                        left = Colors.white;
-                      });
-                    }
-                  },
-                  children: <Widget>[
-                    ConstrainedBox(
-                      constraints: const BoxConstraints.expand(),
-                      child: SignIn(),
+          backgroundColor: const Color(0x00000000),
+          body: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+                // mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(50.0),
+                    child: Card(
+                      margin: EdgeInsets.only(top: 20, right: 30, left: 30),
+                      color: Colors.white,
+                      child: Text(
+                        'Log in',
+                        style: TextStyle(
+                            color: Color(0xFF03045E),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    ConstrainedBox(
-                      constraints: const BoxConstraints.expand(),
-                      child: SignUp(),
+                  ),
+                  Card(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SignIn_TextField(
+                              controller: _ctr1,
+                              icon: Icons.email,
+                              hintText: 'Enter email',
+                              textType: TextInputType.emailAddress,
+                              obscureText: false,
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SignIn_TextField(
+                            controller: _ctr2,
+                            icon: Icons.key,
+                            hintText: 'Enter password',
+                            textType: TextInputType.visiblePassword,
+                            obscureText: true,
+                          ),
+                        ),
+                      ],
                     ),
-                    
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ));
-  }
+                  ),
 
-  Widget _buildMenuBar(BuildContext context) {
-    return Container(
-      width: 300.0,
-      height: 50.0,
-      decoration: const BoxDecoration(
-        color: Color(0x552B2B2B),
-        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-      ),
-      child: CustomPaint(
-        painter: BubbleIndicatorPainter(pageController: _pageController),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Expanded(
-              child: TextButton(
-                style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
-                ),
-                onPressed: _onSignInButtonPress,
-                child: Text(
-                  'Sign In',
-                  style: TextStyle(
-                      color: left,
-                      fontSize: 16.0,
+                  const SizedBox(
+                    height: 20,
                   ),
-                ),
-              ),
-            ),
-            //Container(height: 33.0, width: 1.0, color: Colors.white),
-            Expanded(
-              child: TextButton(
-                style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
-                ),
-                onPressed: _onSignUpButtonPress,
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(
-                      color: right,
-                      fontSize: 16.0,
+
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, 
+                      backgroundColor: const Color.fromARGB(255, 240, 87, 87),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                    onPressed: () async {
+                        
+                        try {
+                          final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: _ctr1.text,
+                            password: _ctr2.text
+                          );
+                          if (credential.user != null) {
+                            Get.offAll(CarScreen());
+                          }
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'user-not-found') {
+                            showSnackbar(context, 'No user found for that email.');
+                          } else if (e.code == 'wrong-password') {
+                            showSnackbar(context, 'Wrong password provided for that user.');
+                          }
+                        } 
+                    }, 
+                    child: const Text(
+                      "Sign Up",
+                    ),
                   ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+                ]),
+          )),
     );
   }
-
-  void _onSignInButtonPress() {
-    _pageController.animateToPage(0,
-        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);
-  }
-
-  void _onSignUpButtonPress() {
-    _pageController.animateToPage(1,
-        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);
-  }
 }
+
+// FF7171
+// FA6E00
+// FFB342
