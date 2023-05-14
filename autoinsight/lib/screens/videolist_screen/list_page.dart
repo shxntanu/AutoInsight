@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:autoinsight/models/firebase_file.dart';
-import 'package:autoinsight/api/firebase_api.dart';
+import 'package:autoinsight/controllers/firebase_controller.dart';
 
 import 'image_view.dart';
 import 'video_view.dart';
@@ -19,7 +19,7 @@ class _VideoListState extends State<VideoList> {
   void initState() {
     super.initState();
 
-    futureFiles = FirebaseApi.listAll('temp/');
+    futureFiles = FirebaseController.listAll('temp/');
   }
 
   @override

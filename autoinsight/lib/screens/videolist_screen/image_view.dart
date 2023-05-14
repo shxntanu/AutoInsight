@@ -1,4 +1,4 @@
-import 'package:autoinsight/api/firebase_api.dart';
+import 'package:autoinsight/controllers/firebase_controller.dart';
 import 'package:autoinsight/models/firebase_file.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class ImagePage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.file_download),
             onPressed: () async {
-              await FirebaseApi.downloadFile(file.ref);
+              await FirebaseController.downloadFile(file.ref);
 
               final snackBar = SnackBar(
                 content: Text('Downloaded ${file.name}'),

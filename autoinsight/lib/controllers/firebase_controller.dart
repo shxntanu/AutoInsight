@@ -4,7 +4,7 @@ import '../models/firebase_file.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path_provider/path_provider.dart';
 
-class FirebaseApi {
+class FirebaseController {
   static Future<List<String>> _getDownloadLinks(List<Reference> refs) =>
       Future.wait(refs.map((ref) => ref.getDownloadURL()).toList());
 
