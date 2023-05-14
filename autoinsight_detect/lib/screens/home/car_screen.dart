@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'dart:math';
+
+import '../../controllers/circle_controller.dart';
+
+final circleCtr = Get.put(circleController());
 
 class CarScreen extends StatefulWidget {
   @override
@@ -7,61 +12,33 @@ class CarScreen extends StatefulWidget {
 }
 
 class _CarScreenState extends State<CarScreen> {
-  final _controllerList = List.generate(8, (_) => TextEditingController());
-  final _colorList = List<Color>.filled(8, Colors.grey);
-
-  @override
-  void dispose() {
-    _controllerList.forEach((controller) => controller.dispose());
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Colorable Circular Outline'),
+        title: const Text('Car Go Brr'),
       ),
       body: Center(
         child: Stack(
-          children: [
-            CustomPaint(
-              painter: CircularOutlinePainter(_colorList),
-              size: const Size(200, 200),
-            ),
-            // Positioned.fill(
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: [
-            //       for (var i = 0; i < _controllerList.length; i++)
-            //         Padding(
-            //           padding: const EdgeInsets.all(8.0),
-            //           child: TextField(
-            //             controller: _controllerList[i],
-            //             decoration: InputDecoration(
-            //               hintText: 'Color $i',
-            //             ),
-            //             onChanged: (value) {
-            //               setState(() {
-            //                 _colorList[i] =
-            //                     value.isNotEmpty ? Color(int.parse(value, radix: 16)) : Colors.grey;
-            //               });
-            //             },
-            //           ),
-            //         ),
-            //     ],
-            //   ),
-            // ),
-          ],
-        ),
+            children: [
+             GetBuilder<circleController>(
+                init: circleCtr,
+                builder: (circleCtr) => CustomPaint(
+                  painter: CircularOutlinePainter(circleCtr.colors),
+                  size: const Size(200, 200),
+                ),
+              ),
+            ],
+          ),
       ),
     );
   }
 }
 
 class CircularOutlinePainter extends CustomPainter {
-  final List<Color> colorList;
+  final RxList<Color> colorList;
 
   CircularOutlinePainter(this.colorList);
 
