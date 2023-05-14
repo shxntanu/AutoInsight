@@ -1,9 +1,16 @@
+import 'package:autoinsight_detect/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import '../screens/login_page/widgets/signin_textfield.dart';
 import '../utils/snackbar.dart';
 import 'package:autoinsight_detect/screens/home/car_screen.dart';
+import '../controllers/user_controller.dart';
+import '../controllers/backend_controller.dart';
+
+final _userCtr = Get.put(userController());
+final _backendCtr = Get.put(backendController());
 
 class LoginPage extends StatefulWidget {
 
@@ -106,6 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                             password: _ctr2.text
                           );
                           if (credential.user != null) {
+                            await _backendCtr.login(_ctr1.text, _ctr2.text);
                             Get.offAll(CarScreen());
                           }
                         } on FirebaseAuthException catch (e) {
