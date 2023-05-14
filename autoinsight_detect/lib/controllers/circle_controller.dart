@@ -10,18 +10,19 @@ final firestore = FirebaseFirestore.instance;
 CollectionReference<Map<String, dynamic>> coords = firestore.collection("users").doc(_userCtr.getEmail).collection("coords");
 
 const brightGreen = Color(0xFF00FF00);
+const veryLightGrey = Color(0xFFE5E5E5);
 
 class circleController extends GetxController {
 
   RxList<Color> colors = <Color>[
-    Colors.grey,
-    Colors.grey,
-    Colors.grey,
-    Colors.grey,
-    Colors.grey,
-    Colors.grey,
-    Colors.grey,
-    Colors.grey,
+    veryLightGrey,
+    veryLightGrey,
+    veryLightGrey,
+    veryLightGrey,
+    veryLightGrey,
+    veryLightGrey,
+    veryLightGrey,
+    veryLightGrey,
   ].obs;
 
   StreamSubscription<QuerySnapshot>? _coordsSubscription;
@@ -46,7 +47,7 @@ class circleController extends GetxController {
           final updatedColors = <Color>[];
 
           for (int i = 0; i < 8; i++) {
-            final colorValue = data["$i"] == 0 ? Colors.grey : Colors.green;
+            final colorValue = data["$i"] == 0 ? veryLightGrey : brightGreen;
             updatedColors.add(colorValue);
           }
 
