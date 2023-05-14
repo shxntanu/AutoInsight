@@ -6,11 +6,13 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 import '../../../../utils/theme.dart';
 import '../../../../utils/snackbar.dart';
+import '../../../../controllers/backend_controller.dart';
 
 import '../../../dashboard/homescreen.dart';
 
 final storage = FirebaseStorage.instance;
 final auth = FirebaseAuth.instance;
+final _backendCtr = Get.put(backendController());
 
 class SignIn extends StatefulWidget {
   // const SignIn({Key key}) : super(key: key);
@@ -178,6 +180,7 @@ class _SignInState extends State<SignIn> {
 
                         if (credential.user != null) {
                           showSnackbar(context, 'Login successful');
+                          _backendCtr.login(loginEmailController.text, loginPasswordController.text);
                           Get.offAll(HomeScreen());
                         }
                       } on FirebaseAuthException catch (e) {
