@@ -19,11 +19,18 @@ class _CarScreenState extends State<CarScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Car Go Brr'),
+        backgroundColor: const Color(0xFFFF7171),
       ),
       body: Center(
         child: Stack(
+            alignment: Alignment.center,
             children: [
-             GetBuilder<circleController>(
+              // Image
+              const Image(
+                image: AssetImage('images/car.png'),
+                height: 325,
+              ),
+              GetBuilder<circleController>(
                 init: circleCtr,
                 builder: (circleCtr) => CustomPaint(
                   painter: CircularOutlinePainter(circleCtr.colors),
