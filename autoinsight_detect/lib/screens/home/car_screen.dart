@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class MyHomePage extends StatefulWidget {
+class CarScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _CarScreenState createState() => _CarScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CarScreenState extends State<CarScreen> {
   final _controllerList = List.generate(8, (_) => TextEditingController());
   final _colorList = List<Color>.filled(8, Colors.grey);
 
@@ -20,14 +20,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Colorable Circular Outline'),
+        automaticallyImplyLeading: false,
+        title: const Text('Colorable Circular Outline'),
       ),
       body: Center(
         child: Stack(
           children: [
             CustomPaint(
               painter: CircularOutlinePainter(_colorList),
-              size: Size(200, 200),
+              size: const Size(200, 200),
             ),
             // Positioned.fill(
             //   child: Column(
