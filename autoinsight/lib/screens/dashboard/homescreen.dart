@@ -1,4 +1,5 @@
 import 'package:autoinsight/controllers/trip_controller.dart';
+import 'package:autoinsight/screens/dashboard/components/newtrip.dart';
 import 'package:autoinsight/screens/navigationbarScreens/alert_screen.dart';
 import 'package:autoinsight/screens/onboarding/login_page/login_page.dart';
 import 'package:autoinsight/screens/videolist_screen/list_page.dart';
@@ -97,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButton: FloatingActionButton(
           tooltip: 'New Trip',
           onPressed: () {
-            Navigator.pushNamed(context, '/newtrip');
+            Get.to(New_trip());
           },
           backgroundColor: const Color(0xFF03045E),
           child: const Icon(
