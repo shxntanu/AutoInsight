@@ -1,9 +1,9 @@
 import 'package:autoinsight/controllers/trip_controller.dart';
 import 'package:autoinsight/screens/navigationbarScreens/alert_screen.dart';
+import 'package:autoinsight/screens/onboarding/login_page/login_page.dart';
 import 'package:autoinsight/screens/videolist_screen/list_page.dart';
+import 'package:autoinsight/utils/colors.dart';
 import 'package:flutter/material.dart';
-//import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-// import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
 import 'package:get/get.dart';
@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/previoustrip.dart';
 import '../navigationbarScreens/profile_page.dart';
+import '../navigationbarScreens/history.dart';
 
 final tripCtr = Get.put(tripController());
 
@@ -58,6 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
           title: 'History',
           fontSize: 12,
           fontWeight: FontWeight.bold,
+          onClick: () {
+            Get.to(CarTest());
+          },
         ),
         TabData(
           icon: Icons.warning,
@@ -66,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fontSize: 12,
           fontWeight: FontWeight.bold,
           onClick: (){
-              Get.to(AlertScreen());
+              Get.to(const AlertScreen());
             },
         ),
       ];
@@ -105,39 +109,38 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(
             height: 35,
           ),
-          Row(children: const <Widget>[
-            SizedBox(
+          Row(children: <Widget>[
+            const SizedBox(
               width: 10,
             ),
-            CircleAvatar(
+            const CircleAvatar(
               radius: 20,
               backgroundImage: AssetImage(
                 'images/autoinsight.png'
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
-            Text(
+            const Text(
               'Welcome Back!',
               style: TextStyle(
                   color: Color(0xFF03045E),
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               width: 50,
             ),
-            Card(
-              color: Colors.grey,
-              child: Padding(
-                padding: EdgeInsets.all(6.0),
-                child: Text(
-                  'current location',
-                  style: TextStyle(color: Color(0xFFFFFFFF)),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: accentOrange,
                 ),
-              ),
-            ),
+              onPressed: () async {
+              final SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.clear();
+              Get.offAll(LoginPage());
+            }, child: const Text("Logout")),
           ]),
           Column(children: <Widget>[
             Padding(
