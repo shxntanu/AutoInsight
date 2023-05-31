@@ -3,14 +3,14 @@
 
 We have used YOLOv5 in our project for detection of vehicles in a video / camera feed.
 
+### YOLOv5
+
 <div align="center">
   <p>
     <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
       <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png"></a>
 </p>
 </div>
-
-### YOLOv5
 
 YOLOv5 is a state-of-the-art object detection model developed by Ultralytics. It is an evolution of the YOLO (You Only Look Once) series of real-time object detection models, known for their efficiency and accuracy. YOLOv5 builds upon the success of its predecessors, such as YOLOv4 and YOLOv3, and introduces several improvements.
 
