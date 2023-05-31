@@ -24,3 +24,29 @@ Some key features and characteristics of YOLOv5:
 - **Implementation:** YOLOv5 is implemented using popular deep learning frameworks such as PyTorch. It provides a user-friendly and flexible interface for training and inference, allowing developers and researchers to experiment with different configurations, model sizes, and datasets.
 
 When applied to vehicle detection in video or camera feeds, YOLOv5 can accurately identify and track vehicles, providing valuable information for traffic analysis, autonomous driving systems, surveillance, and other related applications.
+
+### YOLOv5 Internal Architecture
+
+<img src= "https://www.yuthon.com/images/YOLO_the_architecture.png">
+
+### Training
+[(ref)](https://www.yuthon.com/post/papers/notes-for-yolo/)
+
+In order to make the whole network have better performance, YOLO uses the following tricks:
+- The first 20 convolutional layers use ImageNet for pretraining, and the last 4 convolutional layers and two fully connected layers are randomly initialized
+- Change the resolution of the input image from ```224 x 224``` to ```448 x 448```
+- The last layer (output layer) uses a linear activation function, and the other layers use Leaky ReLU.
+- The loss function uses sum-squared error.
+- The entire loss function is as follows:
+<img src="https://www.yuthon.com/images/YOLO_loss_function.png" height = 450px>
+
+### Limitations of YOLO
+- Since YOLO has only One Bounding Box and one Class, thus limiting the number of detected nearby objects.
+- The generalization ability is not enough. Due to the large number of downsampling, only coarser features can be used.
+- The main source of the loss function is the positioning error, and it needs to be improved in the balance of the position error of large and small objects.
+
+
+
+
+
+
