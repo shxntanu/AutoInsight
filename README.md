@@ -1,3 +1,5 @@
+<img src="https://github.com/shxntanu/AutoInsight/blob/0ac44bf1fed811760052aa62fe1fe28e51f13e4c/autoinsight/images/autoinsight%201.png">
+
 # AutoInsight
 
 RaspberryPi based Vehicle and Crash Detection system, powered by Flutter, Ongoing as a part of Project based learning.
